@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="option_titles">
+        <item>Motion Detection</item>
+        <item>Delivery</item>
+        <item>Network</item>        
+        <item>Photo</item>
+        <item>Video</item>
+        <item>General</item>
+    </string-array>
+</resources>

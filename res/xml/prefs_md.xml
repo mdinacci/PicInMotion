@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory>
+    <Preference android:key="pim.md.pixel_threshold" android:defaultValue="2" />
+    <Preference android:key="pim.md.threshold" android:defaultValue="30" />
+    <Preference android:key="pim.md.morphLevel" android:defaultValue="40" />
+    <Preference android:key="pim.md.pixel_format" android:defaultValue="0x00000011" />
+  </PreferenceCategory>
+</PreferenceScreen>
