@@ -1,0 +1,5 @@
+PicInMotion
+
+Demo application to fire up the camera on an Android device and wait for movement.
+As soon as it's detected take a picture and save to disk.
+
