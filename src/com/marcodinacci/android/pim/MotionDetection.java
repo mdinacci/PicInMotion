@@ -3,10 +3,9 @@ package com.marcodinacci.android.pim;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.marcodinacci.android.commons.KeyValue;
-import com.marcodinacci.android.commons.image.AndroidImage;
-import com.marcodinacci.android.commons.image.Size;
-import com.marcodinacci.android.commons.image.AndroidImageFactory;
+import com.marcodinacci.android.pim.image.AndroidImage;
+import com.marcodinacci.android.pim.image.AndroidImageFactory;
+import com.marcodinacci.android.pim.image.Size;
 
 /* TODO analyse the scene and automatically set the values for the motion detection */
 /* TODO evaluate performance, consider using NDK for optimal speed */
@@ -29,15 +28,15 @@ public class MotionDetection {
 	private static final KeyValue<String,Integer> mThreshold = 
 		new KeyValue<String,Integer>("pim.md.threshold", 9216);//);
 	
-	/* Control the erosion level to perform */
+	/* Control the erosion level to perform (unused) */
 	private static final KeyValue<String,Integer> mErosionLevel = 
 		new KeyValue<String,Integer>("pim.md.erosion_level", 10);
 
-	/* Percentage of pixels of the new image to be merged with the background */
+	/* Percentage of pixels of the new image to be merged 
+	 * with the background  (unused)*/
 	private static final KeyValue<String,Integer> mMorphLevel = 
 		new KeyValue<String, Integer>("pim.md.morph_level", 80);
 	
-	//...
 	private static final KeyValue<String,Size<Integer,Integer>> mSize = 
 		new KeyValue<String,Size<Integer,Integer>>("pim.md.size", 
 				new Size<Integer,Integer>(640,480)); 
@@ -46,10 +45,10 @@ public class MotionDetection {
 	private static final KeyValue<String,Integer> mPixelFormat = 
 		new KeyValue<String, Integer>("pim.md.pixel_format", AndroidImageFactory.IMAGE_FORMAT_NV21);
 	
-	/* Store the background image */
+	// Background image
 	private AndroidImage mBackground;
 
-	// the image that is used for the motion detection
+	// The image that is used for motion detection
 	private AndroidImage mAndroidImage;
 
 	private SharedPreferences mPrefs;
@@ -63,7 +62,6 @@ public class MotionDetection {
 		mPixelFormat.value = mPrefs.getInt(mPixelFormat.key, mPixelFormat.value);
 	}
 
-	// TODO test for performance
 	public boolean detect(byte[] data) {
 		if(mBackground == null) {
 			mBackground = AndroidImageFactory.createImage(data, mSize.value, 
