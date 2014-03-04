@@ -19,6 +19,10 @@ import com.marcodinacci.android.commons.io.DataSink;
 import com.marcodinacci.android.commons.io.DataWriter;
 import com.marcodinacci.android.commons.io.FileUtils;
 
+import com.marcodinacci.android.pim.io.DataSink;
+import com.marcodinacci.android.pim.io.DataWriter;
+import com.marcodinacci.android.pim.io.FileUtils;
+
 /**
  * Extends SurfaceView to preview the Camera frames.
  * 
@@ -107,8 +111,7 @@ public class Preview extends SurfaceView implements SurfaceHolder.Callback {
 	}
 
 	private void configure(Camera camera) {
-		SharedPreferences prefs = mContext.getSharedPreferences(PREFS_NAME,
-				mContext.MODE_PRIVATE);
+		SharedPreferences prefs = mContext.getSharedPreferences(PREFS_NAME, mContext.MODE_PRIVATE);
 		Camera.Parameters params = camera.getParameters();
 
 		params.set("jpeg-quality", prefs.getInt("pim.image-quality", 75));
